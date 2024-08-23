@@ -1,0 +1,16 @@
+{
+  "name": "frist-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --env-file=.env --import=tsx --watch src/server.ts"
+  },
+  "author": "leo",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "tsx": "^4.17.0",
+    "typescript": "^5.5.4"
+  }
+}
