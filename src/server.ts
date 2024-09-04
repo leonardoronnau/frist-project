@@ -2,6 +2,7 @@
 import path from 'path'
  import helmet from 'helmet';
 import routes from './routes'
+import { errorHandller, notFoundRequest } from './routes/errorhandller';
 
  const server = express()
 
@@ -12,14 +13,11 @@ import routes from './routes'
 
 
 server.use('/', routes)
-
-server.get('/', (req, res)=> {
-    res.send('on')
-})
-
+server.use(notFoundRequest)
+server.use(errorHandller)
 
 
  server.listen(3000, ()=> {
-    console.log('server online porta:300');
+    console.log('server online porta:3000');
     
  })

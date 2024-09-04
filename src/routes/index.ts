@@ -2,16 +2,17 @@ import  express from "express";
 
 const routes = express.Router();
 
-routes.get('/', (req, res) => {
+routes.get('/produtos', (req, res) => {
     res.json({produtos: []})
 });
 
-routes.get('/:id', (req,res) => {
-    const {id} = req.params
-    res. json({ id, name : 'teclado', price : 12313131})
+
+
+
+routes.get('/ping', (req, res)=> {
+   
+    res.send('pong')
 })
-
-
 routes.get('/voos/:from/:to',  (req, res)=> {
     const {from, to } = req.params
 
@@ -24,5 +25,8 @@ routes.get('/voos/:from/:to',  (req, res)=> {
         }
     })
     })
+
+
+  
 
 export default routes
