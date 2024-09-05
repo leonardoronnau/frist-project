@@ -1,4 +1,5 @@
-import  express from "express";
+import  express, { RequestHandler } from "express";
+import { interferir } from "../middleware/interferir";
 
 const routes = express.Router();
 
@@ -9,10 +10,12 @@ routes.get('/produtos', (req, res) => {
 
 
 
-routes.get('/ping', (req, res)=> {
+routes.get('/ping', interferir, (req, res)=> {
    
     res.send('pong')
 })
+
+
 routes.get('/voos/:from/:to',  (req, res)=> {
     const {from, to } = req.params
 

@@ -3,6 +3,7 @@ import path from 'path'
  import helmet from 'helmet';
 import routes from './routes'
 import { errorHandller, notFoundRequest } from './routes/errorhandller';
+import { interferir } from './middleware/interferir';
 
  const server = express()
 
@@ -11,7 +12,7 @@ import { errorHandller, notFoundRequest } from './routes/errorhandller';
  server.use(express.urlencoded({extended: true}));
  server.use(express.static(path.join(__dirname, '../public')))
 
-
+server.use(interferir)
 server.use('/', routes)
 server.use(notFoundRequest)
 server.use(errorHandller)
